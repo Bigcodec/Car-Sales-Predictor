@@ -11,7 +11,7 @@ app = FastAPI()
 
 DATABASE_URL = os.getenv("postgresql://car_sales_prediction_0hlf_user:VzlatSJSLlGikwRIkz7ECygw5Q1OrEK5@dpg-d6d77da4d50c73ajmbag-a/car_sales_prediction_0hlf")
 
-engine = create_engine("DATABASE_URL")
+engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind = engine)
 Base = declarative_base()
 
