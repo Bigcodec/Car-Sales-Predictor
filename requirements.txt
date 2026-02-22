@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pandas
+numpy
+scikit-learn
+python-dateutil
+openpyxl
+joblib
+psycopg2-binary
+sqlalchemy
