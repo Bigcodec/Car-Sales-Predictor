@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine, Column, String, Integer, Float
-from sqlalchemy.ext.declarative import declarative_base
+#from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
 from fastapi import FastAPI
 from datetime import datetime
@@ -10,6 +11,7 @@ app = FastAPI()
 #from Car_Sales_Prediction import (generate_next_month_prediction, append_predictions_to_excel )
 
 DATABASE_URL = os.getenv("postgresql://car_sales_prediction_0hlf_user:VzlatSJSLlGikwRIkz7ECygw5Q1OrEK5@dpg-d6d77da4d50c73ajmbag-a/car_sales_prediction_0hlf")
+print("DATABASE_URL =", DATABASE_URL)
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind = engine)
@@ -24,7 +26,7 @@ class Prediction(Base):
     company = Column(String)
     model = Column(String)
     naive_prediction = Column(Float)
-    lr_predction = Column(Float)
+    lr_prediction = Column(Float)
     final_prediction = Column(Float)
 
 Base.metadata.create_all(bind = engine)
