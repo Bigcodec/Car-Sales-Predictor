@@ -8,3 +8,4 @@ openpyxl
 joblib
 psycopg2-binary
 sqlalchemy
+python-dotenv
