@@ -60,6 +60,9 @@ def save_predictions_to_db(predictions):
 @app.get("/predictions")
 def get_predictions():
     
+    # -----Debug code------
+    return {"message":"API working successfully"}
+
     # ----- Date Logic to avoid hardcoding-----
     today = datetime.utcnow()
     cutoff_date = today.strftime("%Y-%m-01")
