@@ -6,13 +6,20 @@ from fastapi import FastAPI
 from datetime import datetime
 import os
 
+#debugging code block
+print("CHECKING ENV...")
+print("DATABASE_URL from getenv:", os.getenv("DATABASE_URL"))
+print("DATABASE_URL in environ:", os.environ.get("DATABASE_URL"))
+print("ALL ENV KEYS:", list(os.environ.keys()))
+
+
 app = FastAPI()
 
 #from Car_Sales_Prediction import (generate_next_month_prediction, append_predictions_to_excel )
 
 DATABASE_URL = os.getenv("postgresql://car_sales_prediction_0hlf_user:VzlatSJSLlGikwRIkz7ECygw5Q1OrEK5@dpg-d6d77da4d50c73ajmbag-a/car_sales_prediction_0hlf")
-print("DATABASE_URL =", DATABASE_URL)
-
+print("DATABASE_URL =", DATABASE_URL) #code for debugging
+ 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind = engine)
 Base = declarative_base()
