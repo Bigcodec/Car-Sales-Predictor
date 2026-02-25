@@ -342,7 +342,7 @@ from datetime import datetime
 #OUTPUT_FILE = Path(R"E:\Python Projects\Car Sales Site\CAR SALES PREDICTOR.xlsx")
 #SHEET_NAME = "prediction_history"
 
-DATA_FILE = Path("Car Sales PQ.xlsx")
+DATA_FILE = Path("CAR SALES PQ.xlsx")
 
 Naive_Weight = .6
 LR_Weight = .4
