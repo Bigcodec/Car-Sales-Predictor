@@ -56,7 +56,7 @@ def save_predictions_to_db(predictions):
     
     db.commit()
     db.close()
-
+'''
 @app.get("/predictions")
 def get_predictions():
     
@@ -77,6 +77,23 @@ def get_predictions():
             "message": f"{len(predictions)} predictions generated and saved"
         }
     }
+
+
+'''
+
+@app.get("/predictions")
+def get_predictions():
+    today = datetime.utcnow()
+    cutoff_date = today.strftime("%Y-%m-01")
+
+    predictions = generate_next_month_prediction(cutoff_date)
+
+    return {
+        "count": len(predictions)
+    }
+
+
+
     #----Summary KPIs (Computed)
     #total_actual = sum(p["actual_sales"] for p in predictions )
     #total_predicted = sum(p["predicted_sales"] for p in predictions)
