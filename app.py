@@ -88,8 +88,13 @@ def get_predictions():
 
     predictions = generate_next_month_prediction(cutoff_date)
 
+    save_predictions_to_db(predictions)
+
     return {
-        "count": len(predictions)
+        "meta": {
+        "generated_at": today.isoformat(),
+        "records_saved": len(predictions)
+        }
     }
 
 
