@@ -84,19 +84,26 @@ def get_predictions():
 @app.get("/predictions")
 def get_predictions():
     today = datetime.utcnow()
-    cutoff_date = today.strftime("%Y-%m-01")
-
+    #cutoff_date = today.strftime("%Y-%m-01")
+    cutoff_date = "2026-02-01"
     predictions = generate_next_month_prediction(cutoff_date)
 
     save_predictions_to_db(predictions)
 
+    try: 
+        save_predictions_to_db(predictions)
+        return {"saved": len(predictions)}
+    except Exception as e:
+        return{"db_error": str(e)}
+
+    '''
     return {
         "meta": {
         "generated_at": today.isoformat(),
         "records_saved": len(predictions)
         }
     }
-
+    '''
 
 
     #----Summary KPIs (Computed)
