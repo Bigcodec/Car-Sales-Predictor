@@ -522,13 +522,13 @@ def generate_next_month_prediction(cutoff_date: str):
         )
 
         predictions.append({
-            "company": company,
-            "model" : model,
+            "company": str(company),
+            "model" : str(model),
             "predicted_for_month" : int(prediction_month_date.strftime("%Y%m")),
-            "predictions_made_on" : cutoff_date.strftime("%Y-%m-%d"),
-            "naive_prediction" : round(naive_pred, 2),
-            "lr_prediction" : round(lr_pred, 2),
-            "final_prediction" : round(final_pred, 2),
+            "predictions_made_on" : str(cutoff_date.strftime("%Y-%m-%d")),
+            "naive_prediction" : float(round(naive_pred, 2)),
+            "lr_prediction" : float(round(float(lr_pred), 2)),
+            "final_prediction" : float(round(float(final_pred), 2)),
         })
 
     return predictions
